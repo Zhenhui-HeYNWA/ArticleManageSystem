@@ -12,9 +12,14 @@ document.querySelector('.btn').addEventListener('click', () => {
   const data = serialize(form, { hash: true, empty: true });
   console.log(data);
   const phoneRegex = /^\d{11}$/;
+  const codeRegex = /^\d{6}$/;
 
   if (!phoneRegex.test(data.mobile)) {
-    myAlert(false, 'Phone number must equal to 11 character');
+    myAlert(false, 'Phone number must equal to 11 characters');
+    return;
+  }
+  if (!codeRegex.test(data.code)) {
+    myAlert(false, 'Code number must equal to 6 characters');
     return;
   }
 
